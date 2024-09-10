@@ -35,6 +35,12 @@ public class Cube : MonoBehaviour
         }
     }
 
+    public void Init()
+    {
+        Renderer.material.color = _startColor;
+        _platforms.Clear();
+    }
+
     private IEnumerator Dead(float lifeTime)
     {
         var wait = new WaitForSeconds(lifeTime);
@@ -42,12 +48,5 @@ public class Cube : MonoBehaviour
         yield return wait;
 
         Disappearing?.Invoke(this);
-        Debug.Log("52");
-    }
-
-    public void Init()
-    {
-        Renderer.material.color = _startColor;
-        _platforms.Clear();
     }
 }
